@@ -35,23 +35,23 @@ search.addEventListener('click', ()=>{
 
 
         switch(json.weather[0].main){
-            case 'Limpo':
+            case 'Clear':
                 image.src = "images/clear.png"
                 break
 
-            case 'Chuvoso':
+            case 'Rain':
                 image.src = "images/rain.png"
                 break
 
-            case 'Nevando':
+            case 'Snow':
                 image.src = "images/snow.png"
                 break
 
-            case 'Nublado':
+            case 'Clouds':
                 image.src = "images/clouds.png"
                 break
 
-            case 'Neblina':
+            case 'Haze':
                 image.src = "images/haze.png"
                 break
                 
@@ -60,8 +60,9 @@ search.addEventListener('click', ()=>{
                 image.src = ''
         }
 
+        let temp = json.main.temp - 273.15
 
-        temperature.innerHTML = `${parseInt(json.main.temp)}<span>°C</span>`
+        temperature.innerHTML = `${parseInt(temp)}<span>°C</span>`
         description.innerHTML = `${json.weather[0].description}`
         humidity.innerHTML = `${json.main.humidity}%`
         wind.innerHTML = `${parseInt(json.wind.speed)}Km/h`
